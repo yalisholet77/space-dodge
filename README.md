@@ -23,3 +23,8 @@ If you would like to contribute to the project, feel free to open a pull request
 ## License
 
 This project is licensed under the AGPL license. See the [LICENSE](./LICENSE) file for more details.
+
+## Requirements
+
+- Python 3.x
+- Pygame
