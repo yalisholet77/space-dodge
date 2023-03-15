@@ -1,6 +1,7 @@
 import pygame
 import time
 import random
+
 pygame.font.init()
 
 WIDTH, HEIGHT = 1000, 800
@@ -37,8 +38,7 @@ def draw(player, elapsed_time, stars):
 def main():
     run = True
 
-    player = pygame.Rect(200, HEIGHT - PLAYER_HEIGHT,
-                         PLAYER_WIDTH, PLAYER_HEIGHT)
+    player = pygame.Rect(200, HEIGHT - PLAYER_HEIGHT, PLAYER_WIDTH, PLAYER_HEIGHT)
     clock = pygame.time.Clock()
     start_time = time.time()
     elapsed_time = 0
@@ -56,7 +56,7 @@ def main():
         if star_count > star_add_increment:
             for _ in range(3):
                 star_x = random.randint(0, WIDTH - STAR_WIDTH)
-                star = pygame.Rect(star_x, -STAR_HEIGHT,STAR_WIDTH, STAR_HEIGHT)
+                star = pygame.Rect(star_x, -STAR_HEIGHT, STAR_WIDTH, STAR_HEIGHT)
                 stars.append(star)
 
             star_add_increment = max(200, star_add_increment - 50)
@@ -84,7 +84,13 @@ def main():
 
         if hit:
             lost_text = FONT.render("You Lost!", 1, "white")
-            WIN.blit(lost_text, (WIDTH/2 - lost_text.get_width()/2, HEIGHT/2 - lost_text.get_height()/2))
+            WIN.blit(
+                lost_text,
+                (
+                    WIDTH / 2 - lost_text.get_width() / 2,
+                    HEIGHT / 2 - lost_text.get_height() / 2,
+                ),
+            )
             pygame.display.update()
             pygame.time.delay(4000)
             break
